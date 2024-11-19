@@ -1,0 +1,506 @@
+#Background_image
+{
+    font-size: 30px;
+    padding: 20px;
+    color:white;
+}
+/*Background da Janela*/
+#Janela_Principal1
+{
+    background-color: rgb(85, 52, 30);
+    
+}
+/* Pagina Inicial */
+#Background_image1
+{
+    background-color: rgb(94, 94, 94);
+}
+#Lado_Direito
+{
+    padding: 20px;
+    color:white;
+}
+
+#body
+{
+    background-image: url("./imgs/8edeb11c-11a4-4b17-9682-da6bee88a9d8.jpg");
+    background-color: rgba(30, 48, 42, 1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+#fundo2
+{
+    background-color: rgba(65, 82, 73, 0.6);
+}
+#img
+{
+    
+}
+#Texto
+{
+    margin-top: 50px;
+    font-size: 15px;
+    color: white;
+    padding-bottom: 70px;
+
+}
+#titulo
+{
+    padding-top:25px;
+    padding-bottom: 10px;
+    font-size:60px ;
+    color: white;
+}
+
+#Link1
+{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 25px;
+    margin-bottom:30px;
+}
+
+#botao
+{
+    padding: 10px;
+    background: rgb(43, 109, 46);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+#botao:hover
+{
+    background: rgb(43, 139, 47);
+}
+/*Pagina de Login*/
+
+#fundo_Login
+{
+    background-image: url("./imgs/bdae667d-01ca-4178-8f89-334f53ccc40d.jpg");
+    background-color: rgba(30, 48, 42, 1);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#Tela_Login
+{
+    background-color:rgba(65, 82, 73, 1) ;
+    margin-left: 800px;
+    margin-top: 260px;
+    margin-bottom: 300px;
+    padding: 50px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border-radius: 10px;
+    border: 3px groove rgb(12, 41, 10);
+
+}
+#Texto_Login
+{
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 20px;
+
+}
+#InputNome
+{
+    border-style: groove;
+    color: black;
+}
+#InputSenha
+{
+    border-style: groove;
+    color: black;
+}
+#Botao_Login
+{
+    margin-left:40px;
+    margin-right: 40px;
+    background: rgb(43, 109, 46);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+#Botao_Login:hover
+{
+    background: rgb(43, 139, 47);
+}
+
+/*Pagina de Usuario*/
+
+
+#Botao_Logout
+{
+    padding: 10px;
+    margin-left:600px;
+    margin-right: 40px;
+    background: rgb(43, 109, 46);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+#Botao_Logout:hover
+{
+    background: rgb(43, 139, 47);
+}
+#Botao_Perfil
+{
+    font-size: 15px;
+    padding: 10px;
+    background: rgb(43, 109, 46);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#Botao_Perfil:hover
+{
+    background: rgb(43, 139, 47);
+}
+#Bem_Vindo_Home
+{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+}
+#Fundo_Cor
+{
+    background-color: rgba(65, 82, 73, 0.6);
+    margin-left: 150px;
+    margin-right: 150px;
+    padding: 40px;
+}
+#Ver_Relatorio
+{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 50px;
+    margin-bottom: 20px;
+
+}
+#Fundo_Home
+{
+    background-image: url("./imgs/bdae667d-01ca-4178-8f89-334f53ccc40d.jpg");
+    background-color: rgba(30, 48, 42, 1);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#Tabela
+{
+    background-color: rgba(44, 117, 38, 0);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border-color:rgba(49, 31, 8, 0.397) ;
+    border-style: groove;
+}
+#Text_Relatorio
+{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 30px;
+}
+#Text_Valor
+{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+#Tabela_Mensagens
+{
+    background-color: rgba(44, 117, 38, 0);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+/*Pagina Adm*/
+#Botao_Logout2
+{
+    padding: 10px;
+    margin-left:50px;
+    background: rgb(43, 109, 46);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px; 
+}
+#Botao_Logout2:hover
+{
+    background: rgb(43, 139, 47);
+}
+#Fundo_Home_adm
+{
+    background-image: url("./imgs/bdae667d-01ca-4178-8f89-334f53ccc40d.jpg");
+    background-color: rgba(30, 48, 42, 1);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#Fundo_Cor_adm
+{
+    background-color: rgba(65, 82, 73, 0.6);
+    margin-left: 150px;
+    margin-right: 150px;
+    padding: 40px;
+}
+#Tabela_adm
+{
+    background-color: rgba(44, 117, 38, 0);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 50px;
+    border-color:rgba(49, 31, 8, 0.397) ;
+    border-style: groove;
+}
+
+
+/*
+Caixa de Mensagem
+*/
+#Caixa_de_Erro
+{
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 5%;
+    color: rgb(216, 26, 26);
+    font-size: 15px;
+    font-weight: bold;
+    border-style: groove;
+    border-color: red;
+    border-width: 5px;
+    
+    
+}
+#Caixa
+{
+    padding: 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+#Caixa_de_Logado
+{
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 5%;
+    color: rgb(15, 182, 0);
+    font-size: 15px;
+    font-weight: bold;
+    border-style: groove;
+    border-color: rgb(15, 182, 0);
+    border-width: 5px;
+}
+
+
+#botao_erro
+{
+
+    font-size: 10px;
+    padding: 4px;
+    background: rgb(43, 109, 46);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#botao_erro:hover
+{
+    background: rgb(43, 139, 47);
+}
+
+
+/*Criacao de usuario*/
+#Cria_Usuario
+{
+    background-image: url("./imgs/bdae667d-01ca-4178-8f89-334f53ccc40d.jpg");
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    
+
+}
+#Cria_Usuario_Adm
+{
+    background-image: url("./imgs/8edeb11c-11a4-4b17-9682-da6bee88a9d8.jpg");
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    
+
+}
+#Fundo_ADM
+{
+    background-color: rgba(30, 48, 42, 0.6);
+    padding: 50px;
+}
+
+/*Criação de Relario*/
+
+#Destinatario
+{
+    font-size: 20px;
+    color: white;
+    font-weight: 800;
+}
+#Fundo_Caixa_Relatorio
+{
+    margin-top: 25px;
+    background-color: rgba(65, 82, 73, 0.5);
+    padding: 100px;
+}
+#Fundo_Janela_Relatorio
+{
+    background-image: url("./imgs/bdae667d-01ca-4178-8f89-334f53ccc40d.jpg"); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 25px;
+}
+#Caixa_Click
+{
+    font-size: 15px;
+    color: white;
+    font-weight: 800;  
+}
+
+#Texto_Destinatario
+{
+    font-size: 15px;
+    color: white;
+    font-weight: 800;  
+}
+
+/*Escolher arquivo caixa*/
+#Fundo_Escolher_arquivo
+{
+    background: linear-gradient(to right, rgb(38, 126, 82),rgb(50, 141, 168));
+}
+#Selecionar_pasta
+{
+    font-size: 15px;
+    padding: 5px;
+    background: rgb(43, 109, 46);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#Selecionar_pasta:hover
+{
+    background: rgb(43, 139, 47);
+}
+#Corpo_Texto
+{
+    background-color: rgba(226, 226, 226, 0.459);
+    color: black;
+    font-size:15px ;
+    font-weight: bold;
+    border: none;
+}
+#Fundo_Caixa_Mensagem
+{
+    background-color: rgba(30, 48, 42, 0.5);
+    padding: 60px;
+    padding-left: 80px;
+    padding-right: 80px;  
+}
+
+/*historico de mensagens*/
+#Botão_Historico_Mensagens
+{
+    background: rgba(0,0,0,0);  
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 13px;
+    padding: 10px;
+
+}
+#Botão_Historico_Mensagens:hover
+{
+    background: rgb(43, 109, 46); 
+}
+/*Relatorio detalhado*/
+
+#Fundo_Caixa_Relatorio_Detalhado
+{
+    margin-top: 25px;
+    background-color: rgba(65, 82, 73, 0.5);
+    padding: 5px;
+}
+
+/*Bate Papo*/
+#InputMensagem
+{
+
+}
+#Botao_Chat
+{   
+    background-image: url("./imgs/mandar.png");
+    font-size: 15px;
+    padding: 5px;
+    background: rgb(82, 231, 90);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#Botao_Chat:hover
+{
+    background: rgb(43, 139, 47);
+}
+#Texto_Resposta
+{
+    font-size: 14px;
+    color: white;
+    font-weight: 800;  
+}
+
+
+#Tabela_BatePapo
+{
+    background-color: rgba(0, 0, 0,0.5);
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+
+}
+/*icones*/
+#FlatIcon
+{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 13px;
+font-weight: bold;
+color: white;
+
+
+}
+#FlatIcon1
+{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px;
+font-weight: bold;
+color: white;
+
+}
+/*Footer*/
+
+#Footer
+{
+    color: white;
+    font-size: 25px;
+    padding: 5px;
+    margin-top:15px ;
+    
+}
