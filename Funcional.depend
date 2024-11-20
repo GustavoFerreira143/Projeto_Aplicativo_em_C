@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1731769452 source:c:\msys64\home\projeto pim c\projeto_meio_ambiente\funcional\paginas_funcional.c
+1732060921 source:c:\msys64\home\projeto pim c\projeto_meio_ambiente\funcional\paginas_funcional.c
 	<gtk/gtk.h>
 	<sodium.h>
 	<stdio.h>

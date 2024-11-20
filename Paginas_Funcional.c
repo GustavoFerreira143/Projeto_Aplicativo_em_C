@@ -1441,6 +1441,8 @@ void on_Enviar_clicked(GtkButton *button, gpointer user_data)
 		mysql_free_result(Consulta_Mensagens);
 	if (Total_Valores)
 		mysql_free_result(Total_Valores);
+
+    mysql_close(conexao);
 }
 
 //----------------------------------------------------------------------Fim botao envia dados --------------------------------------------------------------------------------------------------------
@@ -1796,7 +1798,7 @@ void on_Enviar_Dados_Usuario_Empresa(GtkButton *button, gpointer user_data)
 
 	}
 
-
+    mysql_close(conexao);
 
 }
 
@@ -2039,7 +2041,7 @@ void on_Enviar_Dados_Usuario_ADM(GtkButton *button, gpointer user_data)
 			mensagem("Erro de Formulario","Insira um CPF válido",0,"Cep não foi Inserido");
 
 	}
-
+mysql_close(conexao);
 }
 
 
@@ -2155,7 +2157,7 @@ void puxar_dados(gpointer user_data)
 		gtk_list_store_append(list5, &iter);
 		gtk_list_store_set(list5, &iter, 0, row[0],-1);
 	}
-
+    mysql_close(conexao);
 }
 void puxar_dados_selecao(gpointer user_data)
 {
@@ -2182,7 +2184,7 @@ void puxar_dados_selecao(gpointer user_data)
 		gtk_list_store_append(list7, &iter);
 		gtk_list_store_set(list7, &iter, 0, row[0],-1);
 	}
-
+    mysql_close(conexao);
 }
 
 
@@ -2392,13 +2394,14 @@ void on_enviar_relatorio(GtkButton *button, gpointer user_data)
 			{
 				strncpy(chave_completa, row[0], sizeof(chave_completa) - 1);
 			}
-			mysql_free_result(envio_relatorios);
+
 		}
 		else
 		{
 			mensagem("Erro de Consulta", "Resultado da consulta está vazio.", 0, "");
-			mysql_close(conexao);
+
 		}
+		mysql_free_result(envio_relatorios);
 
 		if (strlen(chave_completa) > 0)
 		{
@@ -2419,25 +2422,24 @@ void on_enviar_relatorio(GtkButton *button, gpointer user_data)
 			if (mysql_query(conexao, valor_necessario) != 0)
 			{
 				mensagem("Erro ao Recuperar", "Erro ao buscar ID do relatório.", 0, mysql_error(conexao));
-				mysql_close(conexao);
+
 				return;
 			}
 
 			envio_relatorios = mysql_store_result(conexao);
-			if (envio_relatorios)
+			if (envio_relatorios != NULL && mysql_num_rows(envio_relatorios)>0)
 			{
 				row = mysql_fetch_row(envio_relatorios);
 				if (row && row[0])
 				{
-					strncpy(valor_arquivo, row[0], sizeof(valor_arquivo) - 1);
+					strncpy(id_relatorioADM, row[0], sizeof(id_relatorioADM) - 1);
 				}
 
 				char ColunaDeDados[700];
 				GtkListStore *list4 = GTK_LIST_STORE(gtk_builder_get_object(builder, "liststore4"));
-				gtk_list_store_clear(list4);
-				GdkPixbuf *pixbuf_xls = gdk_pixbuf_new_from_file("./glade/css/xls.png", NULL);
-				GdkPixbuf *pixbuf_txt = gdk_pixbuf_new_from_file("./glade/css/txt.png", NULL);
-				GdkPixbuf *pixbuf_csv = gdk_pixbuf_new_from_file("./glade/css/csv.png", NULL);
+                GdkPixbuf *pixbuf_xls = gdk_pixbuf_new_from_file("./glade/css/imgs/xls.png", NULL);
+                GdkPixbuf *pixbuf_txt = gdk_pixbuf_new_from_file("./glade/css/imgs/txt.png", NULL);
+                GdkPixbuf *pixbuf_csv = gdk_pixbuf_new_from_file("./glade/css/imgs/csv.png", NULL);
 				if (!list4)
 				{
 					mensagem("Erro", "Erro ao acessar ListStore", 0, "erro");
@@ -3049,6 +3051,7 @@ void on_Enviar_Dados_Mensagem(GtkButton *button, gpointer user_data)
 	// Limpeza
 	g_ptr_array_free(array_de_empresas, TRUE);
 	g_free(texto);
+	mysql_close(conexao);
 }
 
 //------------------------------------------------------------------------------------------Janela de Criacao abertura de Chamado----------------------------------------------------------------------------------------------
@@ -3148,7 +3151,7 @@ void on_Enviar_Chamado(GtkButton *button, gpointer user_data)
 // Limpeza
 	g_free(texto);
 
-
+    mysql_close(conexao);
 
 }
 //---------------------------------------------------------------------------------------------Janela de Historico e edicao de mensagens ----------------------------------------------------------------------------------------
@@ -3421,12 +3424,12 @@ void on_Confirmar_envio_mensagem(GtkButton *button, gpointer user_data)
 	{
 		mensagem("Erro", "O Titulo não pode estar vazio", 0, "Erro");
 	}
-
+    gtk_list_store_clear(list8);
 	GtkTreeIter iter;
 
 	char Razao_empresas[250];
 
-	snprintf(Razao_empresas, sizeof(Razao_empresas),"SELECT titulo_mensagem, corpo_mensagem, data_de_criacao, empresa_destino FROM mensagens where usuario_criador = '%s' ORDER BY id_mensagem DESC ", Nome);
+	snprintf(Razao_empresas, sizeof(Razao_empresas),"SELECT titulo_mensagem, corpo_mensagem, data_de_criacao, empresa_destino FROM mensagens ORDER BY id_mensagem DESC ");
 
 	if(mysql_query(conexao,Razao_empresas))
 	{
@@ -3902,9 +3905,9 @@ void on_pesquisar_relatorios(GtkEntry *entry,gpointer user_data)
 		return;
 	}
 
-	GdkPixbuf *pixbuf_xls = gdk_pixbuf_new_from_file(".glade/css/imgs/xls.png", NULL);
-	GdkPixbuf *pixbuf_txt = gdk_pixbuf_new_from_file(".glade/css/imgs/txt.png", NULL);
-	GdkPixbuf *pixbuf_csv = gdk_pixbuf_new_from_file(".glade/css/imgs/csv.png", NULL);
+			GdkPixbuf *pixbuf_xls = gdk_pixbuf_new_from_file("./glade/css/imgs/xls.png", NULL);
+			GdkPixbuf *pixbuf_txt = gdk_pixbuf_new_from_file("./glade/css/imgs/txt.png", NULL);
+			GdkPixbuf *pixbuf_csv = gdk_pixbuf_new_from_file("./glade/css/imgs/csv.png", NULL);
 
 	gchar *data = gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(user_data, "Pesquisar_por_Data")));
 	gchar *nome_empresa = gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(user_data, "Pesquisar_por_nome_empresa")));
@@ -3966,6 +3969,7 @@ void on_pesquisar_relatorios(GtkEntry *entry,gpointer user_data)
 	{
 		mensagem("Erro", "Falha ao executar a consulta: ", 0, "erro");
 	}
+	mysql_close(conexao);
 }
 void on_pesquisar_relatorio_empresas(GtkEntry *entry,gpointer user_data)
 {
@@ -3976,10 +3980,9 @@ void on_pesquisar_relatorio_empresas(GtkEntry *entry,gpointer user_data)
 		mensagem("Erro", "Não foi possível estabelecer conexão com o banco de dados", 0, "erro");
 		return;
 	}
-
-	GdkPixbuf *pixbuf_xls = gdk_pixbuf_new_from_file("./glade/css/imgs/xls.png", NULL);
-	GdkPixbuf *pixbuf_txt = gdk_pixbuf_new_from_file("./glade/css/imgs/txt.png", NULL);
-	GdkPixbuf *pixbuf_csv = gdk_pixbuf_new_from_file("./glade/css/imgs/csv.png", NULL);
+			GdkPixbuf *pixbuf_xls = gdk_pixbuf_new_from_file("./glade/css/imgs/xls.png", NULL);
+			GdkPixbuf *pixbuf_txt = gdk_pixbuf_new_from_file("./glade/css/imgs/txt.png", NULL);
+			GdkPixbuf *pixbuf_csv = gdk_pixbuf_new_from_file("./glade/css/imgs/csv.png", NULL);
 
 	gchar *data = gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(user_data, "Pesquisar_por_Data1")));
 	gchar *nome_arquivo = gtk_entry_get_text(GTK_ENTRY(gtk_builder_get_object(user_data, "Pesquisar_por_nome_arquivo1")));
@@ -4034,6 +4037,7 @@ void on_pesquisar_relatorio_empresas(GtkEntry *entry,gpointer user_data)
 	{
 		mensagem("Erro", "Falha ao executar a consulta: ", 0, "erro");
 	}
+	mysql_close(conexao);
 }
 //--------------------------------------------------------------------------------------Pesquisas de Relátorio Geral--------------------------------------------------------------------------------------------------------------
 
@@ -4368,6 +4372,7 @@ void CarregarChat()
 		}
 
 	}
+	mysql_close(conexao);
 
 }
 
@@ -4446,7 +4451,7 @@ void on_Tabela_Chamados_responder(GtkTreeView *treeview, GtkTreePath *path, GtkT
 								CarregarChat();
 								GtkWidget *label = gtk_label_new(NULL);
 
-								carregar_chat = g_timeout_add_seconds(5, (GSourceFunc)Carregar_Chat_Segundos,label);
+								carregar_chat = g_timeout_add_seconds(1, (GSourceFunc)Carregar_Chat_Segundos,label);
 
 								GtkMessageDialog *mensagem_dialogo = GTK_MESSAGE_DIALOG(gtk_builder_get_object(user_data, "BatePapo"));
 								gtk_widget_queue_draw(GTK_WIDGET(mensagem_dialogo));
@@ -4492,7 +4497,7 @@ void on_Tabela_Chamados_responder(GtkTreeView *treeview, GtkTreePath *path, GtkT
 										CarregarChat();
 										GtkWidget *label = gtk_label_new(NULL);
 
-										carregar_chat = g_timeout_add_seconds(5, (GSourceFunc)Carregar_Chat_Segundos,label);
+										carregar_chat = g_timeout_add_seconds(1, (GSourceFunc)Carregar_Chat_Segundos,label);
 
 										GtkMessageDialog *mensagem_dialogo = GTK_MESSAGE_DIALOG(gtk_builder_get_object(user_data, "BatePapo"));
 										gtk_widget_queue_draw(GTK_WIDGET(mensagem_dialogo));
@@ -4530,6 +4535,7 @@ void on_Tabela_Chamados_responder(GtkTreeView *treeview, GtkTreePath *path, GtkT
 		}
 		g_free(valor_data);
 	}
+	mysql_close(conexao);
 }
 
 void CarregarLidas(int Somente_nao_lidas)
@@ -5090,6 +5096,7 @@ void CarregarLidas(int Somente_nao_lidas)
 			}
 		}
 	}
+	mysql_close(conexao);
 }
 
 
@@ -5315,6 +5322,7 @@ void on_Enviar_Mensagem(GtkButton *button, gpointer user_data)
 	{
 		mensagem("Erro", "Erro no envio da mensagem", 0, "Erro");
 	}
+	mysql_close(conexao);
 }
 
 
@@ -5409,7 +5417,7 @@ void on_Iniciar_Chat_empresa(GtkTreeView *treeview, GtkTreePath *path, GtkTreeVi
 
 		CarregarChat();
 		// Agende a função para ser chamada a cada 5000 milissegundos (5 segundos)
-		carregar_chat = g_timeout_add_seconds(5, (GSourceFunc)Carregar_Chat_Segundos, (gpointer)builder);
+		carregar_chat = g_timeout_add_seconds(1, (GSourceFunc)Carregar_Chat_Segundos, (gpointer)builder);
 
 
 
@@ -5439,6 +5447,7 @@ void on_Iniciar_Chat_empresa(GtkTreeView *treeview, GtkTreePath *path, GtkTreeVi
 
 
 	}
+
 }
 void on_Cancelar_Seleção1(GtkButton *button, gpointer user_data)
 {
@@ -5561,6 +5570,7 @@ void on_Chamados_nao_lidos_filtrar(GtkToggleButton *toggle_button, gpointer user
 			mysql_free_result(lista3);
 		}
 	}
+	mysql_close(conexao);
 }
 void on_Mensagens_nao_lidas_filtrar(GtkToggleButton *toggle_button, gpointer user_data)
 {
@@ -5666,6 +5676,7 @@ void on_Mensagens_nao_lidas_filtrar(GtkToggleButton *toggle_button, gpointer use
 			mysql_free_result(lista3);
 		}
 	}
+	mysql_close(conexao);
 }
 
 //-------------------------------------------------------------------------------Funcao Main------------------------------------------------------------------------------------------------------------------------------------
