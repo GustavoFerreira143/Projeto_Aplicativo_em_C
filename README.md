@@ -1,7 +1,7 @@
 ![Concluido](http://img.shields.io/static/v1?label=STATUS&message=Concluido&color=GREEN&style=for-the-badge)
 <h1 align="center"> Criação de app para startup de Tratamento de Residuos </h1>
 Para efetuar o Dowload do Installer do Projeto basta  <a href="https://drive.google.com/file/d/1xbxh8SHUmvMAg3J6VALALKRgQCl5XUp4/view?usp=sharing">Clicar aqui</a> <br>
-E para Efetuar o Dowload via zip basta <a href="https://drive.google.com/file/d/1xbxh8SHUmvMAg3J6VALALKRgQCl5XUp4/view?usp=sharing](https://drive.google.com/file/d/1uHbrHnovy-YeONj2SnV__jbEtCHnvUTp/view?usp=drive_link">Clicar aqui</a>
+E para Efetuar o Dowload via zip basta <a href="https://drive.google.com/file/d/1uHbrHnovy-YeONj2SnV__jbEtCHnvUTp/view?usp=sharing">Clicar aqui</a>
 
 <h2>O que estará disponivel no INSTALLER?</h2><br>
 
